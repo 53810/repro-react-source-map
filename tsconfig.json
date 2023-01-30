@@ -43,9 +43,9 @@
     ".stylelintrc-html.js",
     "src/**/*.js",
     "src/**/*.ts",
-    "src/**/*.vue",
+    "src/**/*.tsx",
     "tests/**/*.js",
     "tests/**/*.ts",
-    "tests/**/*.vue"
+    "tests/**/*.tsx"
   ]
 }

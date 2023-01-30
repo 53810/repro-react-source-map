@@ -3,6 +3,6 @@
   "include": [
     "src/**/*.js",
     "src/**/*.ts",
-    "src/**/*.vue"
+    "src/**/*.tsx"
   ]
 }

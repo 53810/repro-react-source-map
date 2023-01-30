@@ -33,9 +33,9 @@
     "husky:commit-msg": "npm run commitlint-next",
     "husky:pre-commit": "php node_modules/real-config/bin/pre-commit.php",
     "husky:unset-hooks": "git config --unset core.hooksPath",
-    "lint": "eslint --fix --max-warnings=0 --no-error-on-unmatched-pattern **/*.{js,ts,vue}",
-    "lint-no-fix": "eslint --max-warnings=0 --no-error-on-unmatched-pattern **/*.{js,ts,vue}",
-    "lint-no-fix-profile": "set TIMING=1 && eslint --max-warnings=0 --no-error-on-unmatched-pattern **/*.{js,ts,vue}",
+    "lint": "eslint --fix --max-warnings=0 --no-error-on-unmatched-pattern **/*.{js,ts,tsx,vue}",
+    "lint-no-fix": "eslint --max-warnings=0 --no-error-on-unmatched-pattern **/*.{js,ts,tsx,vue}",
+    "lint-no-fix-profile": "set TIMING=1 && eslint --max-warnings=0 --no-error-on-unmatched-pattern **/*.{js,ts,tsx,vue}",
     "major-release": "php node_modules/real-config/bin/major-release.php",
     "markdownlint": "markdownlint *.md --ignore=CHANGELOG.md",
     "ncu": "ncu --dep=dev,peer,prod",
@@ -53,31 +53,42 @@
     "stylelint-html": "stylelint --allow-empty-input --config=.stylelintrc-html.js --fix --max-warnings=0 src/**/*.{html,php,vue}",
     "stylelint-html-no-fix": "stylelint --allow-empty-input --config=.stylelintrc-html.js --max-warnings=0 src/**/*.{html,php,vue}",
     "stylelint-no-fix": "stylelint --allow-empty-input --max-warnings=0 src/**/*.{css,scss}",
-    "test": "cf coverage/lcov-report && react-scripts test",
-    "test-fast": "cf coverage/lcov-report && react-scripts test --max-workers=4",
-    "test-release": "react-scripts test --coverage-directory=. --coverage-reporters=lcovonly",
+    "test": "cf coverage/lcov-report && react-scripts test --coverage --watchAll=false",
+    "test-fast": "cf coverage/lcov-report && react-scripts test --coverage --watchAll=false",
+    "test-release": "react-scripts test --coverage --coverage-directory=. --coverage-reporters=lcovonly --watchAll=false",
     "tsc": "tsc --noEmit",
-    "upgrade": "npm run ncu-upgrade && npm run npm:install",
-    "vue-tsc": "vue-tsc --noEmit"
+    "upgrade": "npm run ncu-upgrade && npm run npm:install"
+  },
+  "jest": {
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      }
+    }
   },
   "dependencies": {
     "tslib": "^2.5.0",
     "type-essentials": "^1.0.0",
-    "types-fix": "^1.0.3"
+    "types-fix": "^1.0.3",
+    "real-fns": "^2.1.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
+    "@testing-library/user-event": "^14.4.3",
     "eslint-plugin-misc": "^1.8.2",
     "react-scripts": "^5.0.1",
-    "real-config": "^1.16.0",
-    "real-fns": "^2.1.0"
+    "real-config": "^1.18.0"
   },
   "peerDependencies": {
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^3.1.1"
   },
   "engines": {
     "node": ">=16.0.0",
