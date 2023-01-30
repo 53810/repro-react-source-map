@@ -1,0 +1,8 @@
+{
+  "name": "Time Manager",
+  "extends": [
+    "real-config/typedoc/recommended"
+  ],
+  "out": "docs",
+  "tsconfig": "tsconfig-typedoc.json"
+}
